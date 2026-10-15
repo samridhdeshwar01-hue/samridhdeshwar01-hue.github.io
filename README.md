@@ -23,9 +23,21 @@ After GitHub finishes deployment, the website will be available at **https://sam
 
 ## Make it yours
 
-- **`index.html`** — name, introduction, project cards, GitHub links, and about section. To add a project, copy an existing `<article class="project-card">` and update its content and links. Projects are curated manually; the page does not call the GitHub API.
+- **`index.html`** — name, introduction, project cards, detail-page links, and about section. To add a project, copy an existing `<article class="project-card">` and update its content and links. Projects are curated manually; the page does not call the GitHub API.
+- **`projects/<slug>/index.html`** — static detail pages containing the project README content, dashboard previews, and source repository links. Each full homepage card links to its detail page. Update these pages manually when a project README changes.
 - **`styles.css`** — colors, typography, layout, and responsive styles.
 - **`assets/`** — locally saved GitHub avatar, dashboard screenshots, and favicon. Replace `profile.jpg` with a personal photo if desired, then update its alternative text in `index.html`.
 - **`reference/`** — original design references, preserved unchanged.
 
 Project descriptions and dashboard images come from [Samridh's public GitHub repositories](https://github.com/samridhdeshwar01-hue?tab=repositories). The avatar is the account's public GitHub identicon. The movie preview is a styled code excerpt rather than a dashboard screenshot. Fonts are loaded from Google Fonts, with system fallbacks when offline. All other website assets are local.
+
+## Project detail pages
+
+Each page is a directory with an `index.html`, so GitHub Pages and the local Python server support direct navigation and refreshes without routing configuration:
+
+- `/projects/ecommerce-sales-analysis/`
+- `/projects/decathlon-retail-dashboard/`
+- `/projects/red-bull-sales-dashboard/`
+- `/projects/tmdb-movie-analysis/`
+
+Page content is taken from the respective repository README, with headings and lists formatted for reading. Each page links to its original README and GitHub repository. Dashboard screenshots are stored locally, including additional views from the READMEs. The outdated ecommerce image URL in its README is replaced with the screenshot from its current repository. Visitors do not need a GitHub API request or JavaScript to read any project.

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2f522c">
+  <meta name="description" content="What Makes a Movie Profitable? — exploratory analysis project by Samridh Deshwar. Explore the overview, tools, and analysis from the project README.">
+  <title>What Makes a Movie Profitable? — Samridh Deshwar</title>
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="project-detail" id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="brand" href="../../"><span class="dot" aria-hidden="true"></span>Samridh Deshwar</a>
+    <nav aria-label="Main navigation"><a href="../../">Home</a><a href="../../#projects" aria-current="location">Projects</a><a href="../../#about">About</a><a class="nav-github" href="https://github.com/samridhdeshwar01-hue">GitHub ↗</a></nav>
+  </header>
+  <main class="detail-wrap wrap" id="main">
+    <a class="text-link back-link" href="../../#projects">← All projects</a>
+    <article>
+      <header class="detail-header">
+        <p class="eyebrow">Project 04 / Exploratory analysis</p>
+        <h1>What Makes a Movie Profitable?</h1>
+        <div class="detail-actions"><div class="tags" aria-label="Project tools"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div><a class="button" href="https://github.com/samridhdeshwar01-hue/tmdb_movies_dataset_python_analysis">View on GitHub <span aria-hidden="true">↗</span></a></div>
+      </header>
+      <div class="detail-content">
+        <section class="detail-section" aria-labelledby="overview"><h2 id="overview">Overview</h2><p>This project takes the TMDB Movies dataset of over 10,800 films and turns it into clear insights on what drives box office success. I cleaned the data with Python (pandas and numpy) by removing duplicates and filtering out records where budget or revenue was recorded as 0, which cut the dataset down to about 3,850 reliable movies. I then explored the cleaned data to answer two questions: whether bigger budgets lead to higher revenue, and which genres are the most profitable. The analysis found a positive correlation of about 0.69 between budget and revenue, and showed that Animation, Adventure, Fantasy and Family films earn the highest average profit.</p>
+</section>
+<section class="detail-section" aria-labelledby="tech-stack"><h2 id="tech-stack">Tools & technologies</h2><p>The project was built using the following tools and technologies:</p>
+<ul class="tool-details"><li><strong>🐍 Python (pandas, numpy)</strong>: Loaded the raw movie data, checked data types and missing values, removed duplicates, filtered invalid budget and revenue records, and created a new profit metric (revenue minus budget).</li><li><strong>📓 Jupyter Notebook</strong>: Used to write and document the full wrangling and analysis workflow step by step.</li><li><strong>🧹 Reusable Python functions</strong>: Built a clean_financials() function for the cleaning steps and a format_plot() function to keep chart titles and labels consistent.</li><li><strong>🔀 Pandas string and explode methods</strong>: Split multi-genre entries like &quot;Action|Adventure&quot; into separate rows so each genre could be analyzed on its own.</li><li><strong>📈 Pandas plotting (Matplotlib)</strong>: Built histograms for budget and revenue distributions, a scatter plot of budget vs. revenue, and a bar chart of average profit by genre.</li><li><strong>📊 Correlation and groupby analysis</strong>: Measured the budget-revenue relationship and ranked genres by average profit.</li></ul></section>
+<section class="detail-section" aria-labelledby="key-insights"><h2 id="key-insights">Key insights</h2><ul><li>Most movies have small budgets and modest revenue, while only a few blockbusters sit at the top end.</li><li>Budget and revenue have a correlation of about 0.69, so bigger budgets often mean bigger revenue, but it is not guaranteed.</li><li>Animation had the highest average profit (about $180M), followed by Adventure, Fantasy and Family.</li><li>Documentary and Foreign films had the lowest average profit.</li></ul></section>
+        
+      </div>
+      <p class="readme-source">Content from the <a href="https://github.com/samridhdeshwar01-hue/tmdb_movies_dataset_python_analysis/blob/main/README.md">project README on GitHub ↗</a>.</p>
+    </article>
+    <nav class="project-pagination" aria-label="Project navigation"><a class="text-link" href="../../#projects">← All projects</a><a href="../ecommerce-sales-analysis/"><span class="eyebrow">Next project →</span><span>Ecommerce Sales Analysis</span></a></nav>
+  </main>
+  <footer class="site-footer wrap"><p>© Samridh Deshwar <span class="footer-divider">/</span> Built with curiosity.</p><div><a href="https://github.com/samridhdeshwar01-hue">GitHub ↗</a><a href="#top">Back to top ↑</a></div></footer>
+</body>
+</html>

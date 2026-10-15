@@ -26,11 +26,11 @@ a:focus-visible { outline: 3px solid var(--green); outline-offset: 6px; }
 .dot { display: inline-block; width: 7px; height: 7px; flex-shrink: 0; background: var(--green); border-radius: 50%; }
 .site-header { display: flex; align-items: center; justify-content: space-between; padding-block: 30px; gap: 24px; }
 .brand { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 750; letter-spacing: -.4px; }
-nav { display: flex; align-items: center; gap: 8px; font-size: 13px; }
-nav a { padding: 7px 17px; border-radius: 30px; transition: background .2s, color .2s; }
-nav a:first-child { background: var(--green); color: white; }
-nav a:hover { background: #e9eddf; color: var(--green); }
-nav .nav-github { padding-right: 0; margin-left: 12px; }
+.site-header nav { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+.site-header nav a { padding: 7px 17px; border-radius: 30px; transition: background .2s, color .2s; }
+.site-header nav a:first-child { background: var(--green); color: white; }
+.site-header nav a:hover { background: #e9eddf; color: var(--green); }
+.site-header nav .nav-github { padding-right: 0; margin-left: 12px; }
 .hero { display: grid; grid-template-columns: 280px 1fr; gap: 86px; align-items: center; padding-block: 55px 83px; max-width: 980px; }
 .portrait-block { position: relative; padding: 12px 0 30px; }
 .polaroid { position: relative; background: white; padding: 13px 13px 0; box-shadow: 0 6px 22px #30271c13, 0 1px 3px #30271c0d; border: 1px solid #eee9e0; transform: rotate(-4deg); margin: 0; transition: transform .25s; }
@@ -63,7 +63,7 @@ h2 { font-size: 26px; line-height: 1.3; letter-spacing: -1px; margin: 0; font-we
 .squiggle { display: block; font-size: 27px; line-height: .5; letter-spacing: -5px; color: var(--green); margin-top: 11px; }
 .section-heading > .text-link { align-self: flex-end; }
 .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 35px 30px; }
-.project-card { min-width: 0; background: #fffdf9; border: 1px solid #e8e2d6; border-radius: 7px; box-shadow: 0 4px 14px #3a302308; padding: 10px; transition: box-shadow .25s, transform .25s; }
+.project-card { min-width: 0; background: #fffdf9; border: 1px solid #e8e2d6; border-radius: 7px; box-shadow: 0 4px 14px #3a302308; padding: 0; transition: box-shadow .25s, transform .25s; }
 .project-card:hover { box-shadow: 0 8px 24px #3a302314; transform: translateY(-3px); }
 .project-preview { position: relative; display: flex; align-items: center; justify-content: center; aspect-ratio: 1.75; padding: 25px 22px; background: #eaf0eb; border-radius: 3px; margin-top: 6px; }
 .project-preview .tape { width: 58px; height: 19px; top: -12px; }
@@ -77,9 +77,9 @@ h2 { font-size: 26px; line-height: 1.3; letter-spacing: -1px; margin: 0; font-we
 .project-meta { display: flex; justify-content: space-between; gap: 10px; font-size: 9px; color: var(--green); letter-spacing: .6px; text-transform: uppercase; font-weight: 650; }
 .project-meta span + span { color: var(--muted); letter-spacing: 0; text-align: right; }
 h3 { font-family: var(--serif); font-weight: 500; font-size: 23px; line-height: 1.25; letter-spacing: -.4px; margin: 10px 0; }
-h3 a { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
-h3 a span { font-family: var(--sans); font-size: 18px; color: var(--green); }
-h3 a:hover { color: var(--green); }
+.project-title { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.project-title > span { font-family: var(--sans); font-size: 18px; color: var(--green); }
+.project-card-link:hover .project-title { color: var(--green); }
 .project-info p { color: var(--muted); font-size: 12px; line-height: 1.9; margin: 0 0 17px; }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .tags span { border: 1px solid #dfe4d9; background: #f4f6f0; color: #4a5b42; border-radius: 20px; font-size: 9px; padding: 2px 9px; }
@@ -135,9 +135,9 @@ h3 a:hover { color: var(--green); }
   .wrap { width: calc(100% - 36px); }
   .site-header { padding-block: 23px; gap: 10px; flex-wrap: wrap; }
   .brand { font-size: 14px; }
-  nav { gap: 0; font-size: 11px; }
-  nav a { padding: 5px 10px; }
-  nav .nav-github { display: none; }
+  .site-header nav { gap: 0; font-size: 11px; }
+  .site-header nav a { padding: 5px 10px; }
+  .site-header nav .nav-github { display: none; }
   .hero { grid-template-columns: 1fr; gap: 36px; padding-block: 24px 45px; text-align: center; }
   .portrait-block { width: 185px; margin-inline: auto; padding-bottom: 20px; }
   .polaroid { padding: 9px 9px 0; }
@@ -178,4 +178,54 @@ h3 a:hover { color: var(--green); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; }
+}
+
+/* The entire card is one accessible, native link. */
+.project-card-link { display: block; height: 100%; padding: 10px; border-radius: 7px; }
+.project-card-link:focus-visible { outline-offset: 3px; }
+.project-card:focus-within { box-shadow: 0 8px 24px #3a302314; }
+.project-card-link:hover .project-preview img { transform: scale(1.025); }
+
+/* Static project pages share the portfolio's paper and typography. */
+.project-detail .site-header nav a:first-child { background: transparent; color: var(--ink); }
+.project-detail .site-header nav a[aria-current] { background: var(--green); color: white; }
+.detail-wrap { max-width: 900px; padding-block: 30px 45px; }
+.back-link { margin-bottom: 40px; color: var(--muted); }
+.detail-header { border-bottom: 1px solid var(--line); padding-bottom: 32px; }
+.detail-header h1 { font-size: clamp(34px, 5vw, 57px); line-height: 1.1; letter-spacing: -1.8px; max-width: 800px; text-wrap: balance; }
+.detail-actions { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-top: 25px; }
+.detail-actions .tags span { font-size: 11px; padding: 3px 12px; }
+.detail-actions .button { flex-shrink: 0; }
+.detail-content { background: #fffdf9b3; padding: 0 36px; margin-top: 30px; border: 1px solid var(--line); border-radius: 7px; }
+.detail-section { padding-block: 30px; }
+.detail-section + .detail-section { border-top: 1px solid var(--line); }
+.detail-section h2 { font-family: var(--serif); font-size: 29px; font-weight: 500; letter-spacing: -.4px; margin-bottom: 20px; }
+.detail-section p, .detail-section li { color: var(--muted); font-size: 15px; line-height: 1.9; overflow-wrap: anywhere; }
+.detail-section p { margin: 0 0 18px; }
+.detail-section p:last-child { margin-bottom: 0; }
+.detail-section ul { padding-left: 23px; margin: 0; }
+.detail-section li + li { margin-top: 13px; }
+.tool-details strong { color: var(--ink); font-weight: 600; }
+.dashboard-gallery figure { margin: 0; }
+.dashboard-gallery figure + figure { margin-top: 27px; }
+.dashboard-gallery figure a { display: block; }
+.dashboard-gallery img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 3px; }
+.dashboard-gallery figcaption { margin-top: 8px; font-size: 11px; color: var(--muted); }
+.readme-source { margin-block: 20px 36px; font-size: 12px; color: var(--muted); }
+.readme-source a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+.project-pagination { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-top: 25px; border-top: 1px solid var(--line); }
+.project-pagination > a:last-child { max-width: 65%; text-align: right; font-family: var(--serif); font-size: 20px; line-height: 1.4; }
+.project-pagination .eyebrow { display: block; font-family: var(--sans); font-size: 9px; margin-bottom: 5px; }
+.project-pagination > a:hover { color: var(--green); }
+.project-detail .site-footer { border-top: 1px solid var(--line); }
+@media (max-width: 620px) {
+  .detail-wrap { padding-top: 12px; }
+  .back-link { margin-bottom: 28px; }
+  .detail-header h1 { font-size: 38px; letter-spacing: -1px; }
+  .detail-actions { flex-wrap: wrap; }
+  .detail-content { padding-inline: 20px; margin-top: 22px; }
+  .detail-section { padding-block: 25px; }
+  .detail-section h2 { font-size: 27px; }
+  .detail-section p, .detail-section li { font-size: 14px; }
+  .project-pagination > a:last-child { font-size: 18px; }
 }
